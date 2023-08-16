@@ -233,6 +233,45 @@
 
 
 
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-HCDQ6SXLTN"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+
+  function gtag() {
+      dataLayer.push(arguments);
+  }
+
+  function trackOutboundLink(url, target) {
+    gtag('event', 'click', {
+         'event_category': 'outbound',
+         'event_label': url,
+         'transport_type': 'beacon',
+         'event_callback': function () {
+           if (target !== '_blank') {
+             document.location = url;
+           }
+         }
+    });
+    console.debug("Outbound link clicked: " + url);
+  }
+
+  function onClickCallback(event) {
+    if ((event.target.tagName !== 'A') || (event.target.host === window.location.host)) {
+      return;
+    }
+    trackOutboundLink(event.target, event.target.getAttribute('target'));  
+  }
+
+  gtag('js', new Date());
+  gtag('config', 'G-HCDQ6SXLTN', {});
+  gtag('set', {'cookie_flags': 'SameSite=None;Secure'});
+
+  
+  document.addEventListener('click', onClickCallback, false);
+</script>
+
+
+
 
 
 
@@ -283,8 +322,8 @@
 
 
 
-<link rel="icon" type="image/png" href="/media/icon_hua2ec155b4296a9c9791d015323e16eb5_11927_32x32_fill_lanczos_center_3.png" />
-<link rel="apple-touch-icon" type="image/png" href="/media/icon_hua2ec155b4296a9c9791d015323e16eb5_11927_180x180_fill_lanczos_center_3.png" />
+<link rel="icon" type="image/png" href="/media/icon_hu6b462d5dde05ad7a9ced66577ac5fd0c_29689_32x32_fill_lanczos_center_3.png" />
+<link rel="apple-touch-icon" type="image/png" href="/media/icon_hu6b462d5dde05ad7a9ced66577ac5fd0c_29689_180x180_fill_lanczos_center_3.png" />
 
 <meta name="theme-color" content="#1565c0" />
 
@@ -368,7 +407,7 @@
     "name": "Wowchemy Research Group",
     "logo": {
       "@type": "ImageObject",
-      "url": "https://example.com/media/icon_hua2ec155b4296a9c9791d015323e16eb5_11927_192x192_fill_lanczos_center_3.png"
+      "url": "https://example.com/media/icon_hu6b462d5dde05ad7a9ced66577ac5fd0c_29689_192x192_fill_lanczos_center_3.png"
     }
   },
   "description": "\u003cp\u003eCongratulations to Jian Yang and Monica Hall for winning the Best Paper Award at the 2020 Conference on Wowchemy for their paper “Learning Wowchemy”.\u003c/p\u003e"
